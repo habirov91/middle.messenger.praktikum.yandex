@@ -1,0 +1,27 @@
+.text-button {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    cursor: pointer;
+}
+
+.standard-button {
+    background: #3369F3;
+    border-radius: 8px;
+    border: none;
+    height: 37px;
+    color: #FFFFFF;
+}
+
+.ghost-button {
+    background: transparent;
+    border: none;
+    color: #3369F3;
+}
+
+.cancel-button {
+    background: transparent;
+    border: none;
+    color: #FF0000;
+}

@@ -1,0 +1,33 @@
+.profile-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-container {
+    width: 340px;
+    height: 450px;
+    top: 100px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+}
+
+.profile-elements-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.profile-button-container {
+    display: flex;
+    align-content: flex-start
+}

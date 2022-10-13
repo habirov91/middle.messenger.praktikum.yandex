@@ -1,0 +1,24 @@
+.input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 9px;
+    color: #999999;
+}
+.standard-input {
+width: 100%;
+}
+
+.ghost-input {
+    background: transparent;
+    border: none;
+    color: #3369F3;
+    border-bottom-style: solid;
+}

@@ -1,0 +1,21 @@
+.error-notification {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.code-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 40px;
+    color: #1E1E1E;
+}
+
+.code-description-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 20px;
+    color: #1E1E1E;
+    margin-bottom: 69px;
+    margin-top: 20px;
+}
