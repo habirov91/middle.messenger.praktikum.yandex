@@ -2,9 +2,14 @@
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
   "description": "---",
-  "main": "index.js",
   "engines": {
     "node": ">=16.0.0 <17.0.0"
+  },
+  "targets": {
+    "global": {
+      "context": "browser",
+      "outputFormat": "global"
+    }
   },
   "scripts": {
     "start": "parcel --no-cache index.html --open --port 3000",
@@ -21,12 +26,10 @@
     "url": "https://github.com/habirov91/middle.messenger.praktikum.yandex/issues"
   },
   "homepage": "https://github.com/habirov91/middle.messenger.praktikum.yandex#readme",
-  "dependencies": {
-    "handlebars": "^4.7.7"
-  },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
     "express": "^4.18.2",
-    "parcel": "^2.7.0"
+    "parcel": "^2.7.0",
+    "handlebars": "^4.7.7"
   }
 }
