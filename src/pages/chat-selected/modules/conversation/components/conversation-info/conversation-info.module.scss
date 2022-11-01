@@ -1,0 +1,12 @@
+@import '../../../../../../shared/styles/global';
+
+.info {
+  @include flexBetween;
+  padding: 19px 31px;
+  height: 70px;
+}
+
+.user {
+  @include flexCenter;
+  flex: 0;
+}

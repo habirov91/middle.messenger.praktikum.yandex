@@ -1,0 +1,11 @@
+@import '../../../styles/global';
+
+.wrapper,
+.error {
+  @include flexCenter;
+  flex-direction: column;
+}
+
+.wrapper {
+  height: 100vh;
+}

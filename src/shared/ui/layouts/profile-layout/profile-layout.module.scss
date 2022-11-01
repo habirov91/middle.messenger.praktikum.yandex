@@ -1,0 +1,11 @@
+@import '../../../styles/global';
+
+.wrapper {
+  display: grid;
+  grid-template-columns: minmax(40px, 64px) auto;
+}
+
+.profile {
+  @include flexCenter;
+  flex-direction: column;
+}

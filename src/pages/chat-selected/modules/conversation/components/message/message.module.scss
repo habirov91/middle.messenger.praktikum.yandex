@@ -1,0 +1,21 @@
+@import '../../../../../../shared/styles/global';
+
+.message {
+  display: flex;
+  align-items: flex-end;
+  max-width: 402px;
+  padding: 11px;
+  border-radius: 12px;
+}
+
+.incomingMessage {
+  border-top-left-radius: 0;
+  background-color: #F8F8F8;
+  align-self: flex-start;
+}
+
+.ownMessage {
+  border-bottom-right-radius: 0;
+  background-color: #E4EDFD;
+  align-self: flex-end;
+}

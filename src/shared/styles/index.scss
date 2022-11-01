@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import './global';
+
+body {
+  margin: 0;
+  font-family: Sora, sans-serif;
+}
+
+code {
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+}
