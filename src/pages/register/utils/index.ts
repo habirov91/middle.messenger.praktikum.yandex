@@ -2,15 +2,15 @@ import {IInput} from "shared/ui/atoms/input/types";
 
 
 export const registerData: IInput[] = [
-  { name: 'Почта', placeholder: 'habirov-91@yandex.ru', type: 'email' },
-  { name: 'Логин', placeholder: 'Ildus', type: 'text' },
-  { name: 'Имя', placeholder: 'Ильдус', type: 'text' },
-  { name: 'Фамилия', placeholder: 'Хабиров', type: 'text' },
-  { name: 'Телефон', placeholder: '+00000000000', type: 'text' },
-  { name: 'Пароль', placeholder: 'Password', type: 'password' },
+  { name: 'email', placeholder: 'Email', type: 'email' },
+  { name: 'login', placeholder: 'Логин', type: 'text' },
+  { name: 'first_name', placeholder: 'Имя', type: 'text' },
+  { name: 'second_name', placeholder: 'Фамилия', type: 'text' },
+  { name: 'phone', placeholder: 'Номер телефона', type: 'text' },
+  { name: 'password', placeholder: 'Пароль', type: 'password' },
   {
-    name: 'Пароль (еще раз)',
-    placeholder: 'Confirm password',
+    name: 'passwordConfirm',
+    placeholder: 'Повторите пароль',
     type: 'password',
   },
 ];
