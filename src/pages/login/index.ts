@@ -5,6 +5,8 @@ import {handleSubmit} from "shared/functions/handle-submit";
 import {renderDom} from "shared/functions/render-dom";
 import { ILogin } from './types';
 import {loginData} from './utils';
+import {validateField} from "shared/functions/validate-field";
+import {validationSchema} from "shared/data/user-validation-schema";
 
 class Login extends Block {
   constructor(props: ILogin) {
@@ -35,11 +37,12 @@ const fields = loginData.map(({ name, placeholder, type }) => ({
   error: new FormError({ error: '' }),
 }));
 
-fields.forEach(({ input }) => {
+fields.forEach(({ input, error }) => {
   input.setProps({
     events: {
       blur: (e: FocusEvent) => {
         handleInputChange(input, e);
+        validateField(input, error, validationSchema, fields)
       },
     },
   });

@@ -5,6 +5,7 @@ const loginRule = /^(?=.*[a-zA-Z])([a-zA-Z0-9_-]{3,20})$/g;
 const mailRule = /^[-.\/?*()!#&+\w\s]+[@][a-zA-Z]+[.][a-zA-Z]+$/g;
 const passwordRule = /^(?=.*[0-9])(?=.*[A-Z])([a-zA-Z0-9_-]{8,40})$/g;
 const phoneRule = /^[+]?[0-9]{10,15}$/g;
+export const noEmptyRule = /([^\s])/g;
 
 export const validationSchema: ValidationSchema = {
   first_name: {
@@ -19,6 +20,10 @@ export const validationSchema: ValidationSchema = {
     rule: loginRule,
     error:
       'Логин должен иметь длину 3-20 и не содержать пробелов и специальных символов (исключая - и _).',
+  },
+  display_name: {
+    rule: noEmptyRule,
+    error: 'Введите название чата',
   },
   email: {
     rule: mailRule,
@@ -37,6 +42,10 @@ export const validationSchema: ValidationSchema = {
   passwordConfirm: {
     rule: { equal: 'password' },
     error: "Пароли не совпадают",
+  },
+  oldPassword: {
+    rule: noEmptyRule,
+    error: 'Введите старый пароль',
   },
   newPassword: {
     rule: passwordRule,

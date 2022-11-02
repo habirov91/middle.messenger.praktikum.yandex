@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "npm run checkTsc && parcel static/pages/*.html",
-    "start": "npm run build && node server.js",
+    "start": "parcel --no-cache index.html --open --port 3000",
     "build": "npm run checkTsc && npm run linter && parcel build static/pages/*.html",
     "checkTsc": "npx tsc --noEmit",
     "linter": "npx eslint . --ext .ts --fix",

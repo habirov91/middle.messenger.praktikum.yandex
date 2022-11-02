@@ -41,7 +41,7 @@ export function ChatsModule(): Chats {
         avatar: new Avatar({
           source: userAvatar,
         }),
-        username: new Link({ content: username, url: 'chatSelected.html' }),
+        username: new Link({ content: username, url: 'chat-selected.html' }),
         sender,
         message,
         time,

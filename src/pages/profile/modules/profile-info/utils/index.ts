@@ -11,7 +11,7 @@ export const profileData: IProfileField[] = [
 ];
 
 export const profileLinks: ILink[] = [
-  { url: 'profileChange.html', content: 'Изменить данные' },
-  { url: 'passwordChange.html', content: 'Изменить пароль' },
+  { url: 'profile-change.html', content: 'Изменить данные' },
+  { url: 'password-change.html', content: 'Изменить пароль' },
   { url: 'login.html', content: 'Выйти' },
 ];

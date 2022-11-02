@@ -1,15 +1,10 @@
 .standard {
   width: 100%;
   font-family: Sora, sans-serif;
-  color: #EFEFEF;
   background: #EFEFEF;
   outline: none;
   border: none;
   border-radius: 5px;
-
-  &::placeholder {
-    color: #E4EDFD;
-  }
 }
 
 .error {
