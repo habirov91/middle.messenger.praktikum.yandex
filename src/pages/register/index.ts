@@ -66,6 +66,7 @@ const registerForm = new ContentBlock({
 });
 
 const content = new Register({
+  // @ts-ignore
   form: registerForm,
 });
 

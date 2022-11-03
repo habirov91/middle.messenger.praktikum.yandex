@@ -3,10 +3,10 @@ import { Button, Input, FormError, Form, ContentBlock, Link, AuthorizationLayout
 import { handleInputChange } from 'shared/functions/handle-input-change';
 import { handleSubmit } from 'shared/functions/handle-submit';
 import { renderDom } from 'shared/functions/render-dom';
-import { ILogin } from './types';
-import { loginData } from './utils';
 import { validateField } from 'shared/functions/validate-field';
 import { validationSchema } from 'shared/data/user-validation-schema';
+import { ILogin } from './types';
+import { loginData } from './utils';
 
 class Login extends Block<ILogin> {
   constructor(props: ILogin) {
@@ -67,6 +67,7 @@ const loginForm = new ContentBlock({
 });
 
 const content = new Login({
+  // @ts-ignore
   form: loginForm,
 });
 

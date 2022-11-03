@@ -1,11 +1,11 @@
 import { Block } from 'shared/classes';
 import { Avatar, Link, Input } from 'shared/ui';
+import { chatsData } from 'shared/data/chats-data';
 import { template } from './chats.tmpl';
 import { Chat } from './components/chat';
 import { IChats } from './types';
 import { BurgerIcon } from '../../../../../static/icons/burger-icon';
 import userAvatar from '../../../../../static/images/user-avatar.png';
-import { chatsData } from 'shared/data/chats-data';
 
 export class Chats extends Block<IChats> {
   constructor(props: IChats) {

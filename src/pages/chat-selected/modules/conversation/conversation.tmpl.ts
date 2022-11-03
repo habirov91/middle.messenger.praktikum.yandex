@@ -8,5 +8,5 @@ export const template = `
       {{ this }}
     {{/each}}
   </div>
-  <div  class=${styles.bottomBar}>{{ bottomBar }}</div>
+  <div>{{ bottomBar }}</div>
 </div>`;

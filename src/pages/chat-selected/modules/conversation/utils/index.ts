@@ -1,5 +1,5 @@
-import cameraPhoto from '../../../../../../static/images/camera-photo.png';
 import { IInput } from 'shared/ui/atoms/input/types';
+import cameraPhoto from '../../../../../../static/images/camera-photo.png';
 
 export const conversationData = [
   {

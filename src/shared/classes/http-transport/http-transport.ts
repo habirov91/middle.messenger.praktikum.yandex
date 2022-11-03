@@ -15,9 +15,7 @@ function queryStringify(data: Record<string, any>) {
 }
 
 export class HttpTransport {
-  get: HTTPMethod = (url, options = {}): Promise<XMLHttpRequest> => {
-    return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
-  };
+  get: HTTPMethod = (url, options = {}): Promise<XMLHttpRequest> => this.request(url, { ...options, method: METHODS.GET }, options.timeout);
 
   put: HTTPMethod = (url, options = {}): Promise<XMLHttpRequest> =>
     this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
