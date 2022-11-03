@@ -1,4 +1,4 @@
-import {BlockProps} from "shared/types";
+import { BlockProps } from 'shared/types';
 
 export interface ISystemMessage extends BlockProps {
   message: string;

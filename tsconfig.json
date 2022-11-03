@@ -1,5 +1,8 @@
 {
-  "include": ["src", "./declaration.d.ts"],
+  "include": [
+    "src",
+    "./declaration.d.ts"
+  ],
   "compilerOptions": {
     "outDir": "dist",
     "target": "es2018",
@@ -13,7 +16,9 @@
     "esModuleInterop": true,
     "baseUrl": "",
     "paths": {
-      "shared/*": ["src/shared/*"]
+      "shared/*": [
+        "src/shared/*"
+      ]
     }
   }
 }

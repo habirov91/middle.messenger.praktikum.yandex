@@ -1,10 +1,10 @@
-import {Block} from "shared/classes";
-import {ChatsModule, Sidebar, MainLayout} from "shared/ui";
-import {renderDom} from "shared/functions/render-dom";
-import {SystemMessage} from './components/system-message';
+import { Block } from 'shared/classes';
+import { ChatsModule, Sidebar, MainLayout } from 'shared/ui';
+import { renderDom } from 'shared/functions/render-dom';
+import { SystemMessage } from './components/system-message';
 import { IChatSelect } from './types';
 
-class ChatSelect extends Block {
+class ChatSelect extends Block<IChatSelect> {
   constructor(props: IChatSelect) {
     super(MainLayout.template, props);
   }

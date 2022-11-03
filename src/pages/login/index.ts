@@ -1,14 +1,14 @@
-import {Block} from "shared/classes";
-import {Button, Input, FormError, Form, ContentBlock, Link, AuthorizationLayout} from "shared/ui";
-import {handleInputChange} from "shared/functions/handle-input-change";
-import {handleSubmit} from "shared/functions/handle-submit";
-import {renderDom} from "shared/functions/render-dom";
+import { Block } from 'shared/classes';
+import { Button, Input, FormError, Form, ContentBlock, Link, AuthorizationLayout } from 'shared/ui';
+import { handleInputChange } from 'shared/functions/handle-input-change';
+import { handleSubmit } from 'shared/functions/handle-submit';
+import { renderDom } from 'shared/functions/render-dom';
 import { ILogin } from './types';
-import {loginData} from './utils';
-import {validateField} from "shared/functions/validate-field";
-import {validationSchema} from "shared/data/user-validation-schema";
+import { loginData } from './utils';
+import { validateField } from 'shared/functions/validate-field';
+import { validationSchema } from 'shared/data/user-validation-schema';
 
-class Login extends Block {
+class Login extends Block<ILogin> {
   constructor(props: ILogin) {
     super(AuthorizationLayout.template, props);
   }
@@ -42,7 +42,7 @@ fields.forEach(({ input, error }) => {
     events: {
       blur: (e: FocusEvent) => {
         handleInputChange(input, e);
-        validateField(input, error, validationSchema, fields)
+        validateField(input, error, validationSchema, fields);
       },
     },
   });
@@ -59,8 +59,6 @@ const form = new Form({
     submit: (e: SubmitEvent) => handleSubmit({ fields, e }),
   },
 });
-
-
 
 const loginForm = new ContentBlock({
   title: 'Вход',

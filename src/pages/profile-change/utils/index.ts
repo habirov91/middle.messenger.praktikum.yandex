@@ -1,4 +1,4 @@
-import {IInput} from "shared/ui/atoms/input/types";
+import { IInput } from 'shared/ui/atoms/input/types';
 
 export const profileChangeData: IInput[] = [
   { name: 'email', placeholder: 'Email', type: 'email' },

@@ -1,9 +1,8 @@
-import {Block} from "../../../classes";
-import {template} from './form-error.tmpl';
+import { Block } from '../../../classes';
+import { template } from './form-error.tmpl';
 import { IFormError } from './types';
 
-
-export class FormError extends Block {
+export class FormError extends Block<IFormError> {
   constructor(props: IFormError) {
     super(template, props);
   }

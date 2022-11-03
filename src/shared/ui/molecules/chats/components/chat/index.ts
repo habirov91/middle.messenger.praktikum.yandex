@@ -1,9 +1,8 @@
-
-import {template} from './chat.tmpl';
+import { template } from './chat.tmpl';
 import { IChat } from './types';
-import {Block} from "../../../../../classes";
+import { Block } from '../../../../../classes';
 
-export class Chat extends Block {
+export class Chat extends Block<IChat> {
   constructor(props: IChat) {
     super(template, props);
   }

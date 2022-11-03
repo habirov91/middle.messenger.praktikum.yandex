@@ -1,4 +1,4 @@
-import {template} from './main-layout.tmpl';
+import { template } from './main-layout.tmpl';
 
 export const MainLayout = {
   template,

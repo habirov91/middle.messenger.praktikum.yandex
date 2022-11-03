@@ -1,4 +1,4 @@
-import {IInput} from "shared/ui/atoms/input/types";
+import { IInput } from 'shared/ui/atoms/input/types';
 
 export const passwordData: IInput[] = [
   { name: 'oldPassword', placeholder: 'Старый пароль', type: 'password' },

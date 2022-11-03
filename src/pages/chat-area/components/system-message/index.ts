@@ -1,8 +1,8 @@
-import {Block} from "shared/classes";
-import {template} from './system-message.tmpl';
+import { Block } from 'shared/classes';
+import { template } from './system-message.tmpl';
 import { ISystemMessage } from './types';
 
-export class SystemMessage extends Block {
+export class SystemMessage extends Block<ISystemMessage> {
   constructor(props: ISystemMessage) {
     super(template, props);
   }

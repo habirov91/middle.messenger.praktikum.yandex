@@ -1,5 +1,4 @@
-import {BlockProps} from "../../../types";
-
+import { BlockProps } from '../../../types';
 
 export interface ILink extends BlockProps {
   url: string;

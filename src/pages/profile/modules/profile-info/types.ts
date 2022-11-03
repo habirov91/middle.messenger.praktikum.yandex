@@ -1,5 +1,5 @@
-import {BlockProps} from "shared/types";
-import {Avatar, Link} from "shared/ui";
+import { BlockProps } from 'shared/types';
+import { Avatar, Link } from 'shared/ui';
 
 export interface IProfileInfo extends BlockProps {
   avatar: Avatar;

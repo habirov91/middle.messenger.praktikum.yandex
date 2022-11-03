@@ -1,9 +1,8 @@
-import {Link} from "shared/ui";
-import {BlockProps} from "../../../types";
-import {Button} from '../../atoms/button';
-import {Input} from '../../atoms/input';
-import {FormError} from '../../atoms/form-error';
-
+import { Link } from 'shared/ui';
+import { BlockProps } from '../../../types';
+import { Button } from '../../atoms/button';
+import { Input } from '../../atoms/input';
+import { FormError } from '../../atoms/form-error';
 
 export interface IFields {
   input: Input;

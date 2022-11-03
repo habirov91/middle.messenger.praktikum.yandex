@@ -1,8 +1,8 @@
-import {Block} from "shared/classes";
-import {template} from './conversation-info.tmpl';
+import { Block } from 'shared/classes';
+import { template } from './conversation-info.tmpl';
 import { IConversationInfo } from './types';
 
-export class ConversationInfo extends Block {
+export class ConversationInfo extends Block<IConversationInfo> {
   constructor(props: IConversationInfo) {
     super(template, props);
   }

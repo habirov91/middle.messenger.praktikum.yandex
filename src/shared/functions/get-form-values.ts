@@ -1,8 +1,6 @@
-import {FormValues} from "../types";
+import { FormValues } from '../types';
 
-export function getFormValues(
-  eventTarget: EventTarget | null,
-): FormValues {
+export function getFormValues(eventTarget: EventTarget | null): FormValues {
   const form = eventTarget as HTMLElement;
 
   const nodeList = form.querySelectorAll('input');

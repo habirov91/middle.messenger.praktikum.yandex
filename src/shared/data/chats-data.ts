@@ -16,5 +16,5 @@ export const chatsData = [
     sender: '',
     time: '15:01',
     message: 'Здорова, ты дебик?',
-  }
+  },
 ];

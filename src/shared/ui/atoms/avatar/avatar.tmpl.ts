@@ -1,1 +1,1 @@
-export const template = `<img src="{{ source }}" >`;
+export const template = `<img src="{{ source }}" alt="Аватар">`;

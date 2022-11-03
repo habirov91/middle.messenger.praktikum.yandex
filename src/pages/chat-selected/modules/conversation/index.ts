@@ -1,18 +1,20 @@
-import {Block} from "shared/classes";
-import {Button, Avatar, Input, Form} from "shared/ui";
-import {handleInputChange} from "shared/functions/handle-input-change";
-import {handleSubmit} from "shared/functions/handle-submit";
-import {InfoIcon} from '../../../../../static/icons/info-icon';
-import {OptionsIcon} from '../../../../../static/icons/options-icon';
+import { Block } from 'shared/classes';
+import { Button, Avatar, Input, Form, FormError } from 'shared/ui';
+import { handleInputChange } from 'shared/functions/handle-input-change';
+import { handleSubmit } from 'shared/functions/handle-submit';
+import { InfoIcon } from '../../../../../static/icons/info-icon';
+import { OptionsIcon } from '../../../../../static/icons/options-icon';
 import userAvatar from '../../../../../static/images/user-avatar.png';
-import {template} from './conversation.tmpl';
-import {ConversationInfo} from './components/conversation-info';
-import {Message} from './components/message';
-import {ConversationActions} from './components/conversation-actions';
+import { template } from './conversation.tmpl';
+import { ConversationInfo } from './components/conversation-info';
+import { Message } from './components/message';
+import { ConversationActions } from './components/conversation-actions';
 import { IConversation } from './types';
-import { conversationData, validationSchema } from './utils';
+import { conversationData, MessageData } from './utils';
+import { validateField } from 'shared/functions/validate-field';
+import { validationSchema } from 'shared/data/user-validation-schema';
 
-export class Conversation extends Block {
+export class Conversation extends Block<IConversation> {
   constructor(props: IConversation) {
     super(template, props);
   }
@@ -57,22 +59,20 @@ export function ConversationModule(): Conversation {
     content: OptionsIcon,
   });
 
-  const messageFields = [
-    {
-      input: new Input({
-        name: 'message',
-        placeholder: 'Введите сообщение',
-        type: 'text',
-      }),
-    },
-  ];
+  const messageFields = MessageData.map(({ name, placeholder, type }) => ({
+    input: new Input({ name, placeholder, type }),
+    error: new FormError({}),
+  }));
 
-  messageFields[0].input.setProps({
-    events: {
-      blur: (e: FocusEvent) => {
-        handleInputChange(messageFields[0].input, e);
+  messageFields.forEach(({ input, error }) => {
+    input.setProps({
+      events: {
+        blur: (e: FocusEvent) => {
+          handleInputChange(input, e);
+          validateField(input, error, validationSchema, messageFields);
+        },
       },
-    },
+    });
   });
 
   const messageButton = new Button({
@@ -84,8 +84,7 @@ export function ConversationModule(): Conversation {
     fields: messageFields,
     button: messageButton,
     events: {
-      submit: (e: SubmitEvent) =>
-        handleSubmit({ e, fields: messageFields, validationSchema }),
+      submit: (e: SubmitEvent) => handleSubmit({ e, fields: messageFields }),
     },
   });
 

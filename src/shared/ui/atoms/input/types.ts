@@ -1,5 +1,4 @@
-import {BlockProps} from "shared/types";
-
+import { BlockProps } from 'shared/types';
 
 export interface IInput extends BlockProps {
   type: InputType;

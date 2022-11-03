@@ -1,5 +1,5 @@
-import {ValidationSchema} from "shared/types";
 import cameraPhoto from '../../../../../../static/images/camera-photo.png';
+import { IInput } from 'shared/ui/atoms/input/types';
 
 export const conversationData = [
   {
@@ -11,7 +11,7 @@ export const conversationData = [
   },
   {
     own: false,
-    content: `<img src='${cameraPhoto}'>`,
+    content: `<img src='${cameraPhoto}' alt="Камера">`,
     status: null,
     time: '15:13',
   },
@@ -23,11 +23,4 @@ export const conversationData = [
   },
 ];
 
-const messageRule = /^(?!\s*$)[a-zA-Z.+\s'-]+$/g;
-
-export const validationSchema: ValidationSchema = {
-  message: {
-    rule: messageRule,
-    error: '',
-  },
-};
+export const MessageData: IInput[] = [{ name: 'message', placeholder: 'Введите сообщение', type: 'text' }];

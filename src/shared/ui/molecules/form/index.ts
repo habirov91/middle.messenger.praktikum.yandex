@@ -1,9 +1,8 @@
-import {Block} from "../../../classes";
-import {template} from './form.tmpl';
+import { Block } from '../../../classes';
+import { template } from './form.tmpl';
 import { IForm } from './types';
 
-
-export class Form extends Block {
+export class Form extends Block<IForm> {
   constructor(props: IForm) {
     super(template, props);
   }

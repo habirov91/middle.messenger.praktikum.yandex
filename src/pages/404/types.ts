@@ -1,5 +1,5 @@
-import {Link} from "shared/ui";
-import {BlockProps} from "shared/types";
+import { Link } from 'shared/ui';
+import { BlockProps } from 'shared/types';
 
 export interface IError404 extends BlockProps {
   code: string;

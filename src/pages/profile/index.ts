@@ -1,11 +1,11 @@
-import {Block} from "shared/classes";
-import {Link, Navigation, Sidebar} from "shared/ui";
-import {renderDom} from "shared/functions/render-dom";
-import {ProfileLayout} from "shared/ui/layouts/profile-layout";
+import { Block } from 'shared/classes';
+import { Link, Navigation, Sidebar } from 'shared/ui';
+import { renderDom } from 'shared/functions/render-dom';
+import { ProfileLayout } from 'shared/ui/layouts/profile-layout';
 import { ProfileInfoModule } from './modules/profile-info';
 import { IProfile } from './types';
 
-class Profile extends Block {
+class Profile extends Block<IProfile> {
   constructor(props: IProfile) {
     super(ProfileLayout.template, props);
   }

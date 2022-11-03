@@ -1,14 +1,14 @@
-import {Block} from "shared/classes";
-import {Button, Input, FormError, Form, Link, ContentBlock, AuthorizationLayout} from "shared/ui";
-import {handleInputChange} from "shared/functions/handle-input-change";
-import {validateField} from "shared/functions/validate-field";
-import {handleSubmit} from "shared/functions/handle-submit";
-import {renderDom} from "shared/functions/render-dom";
-import {validationSchema} from "shared/data/user-validation-schema";
+import { Block } from 'shared/classes';
+import { Button, Input, FormError, Form, Link, ContentBlock, AuthorizationLayout } from 'shared/ui';
+import { handleInputChange } from 'shared/functions/handle-input-change';
+import { validateField } from 'shared/functions/validate-field';
+import { handleSubmit } from 'shared/functions/handle-submit';
+import { renderDom } from 'shared/functions/render-dom';
+import { validationSchema } from 'shared/data/user-validation-schema';
 import { IRegister } from './types';
-import {registerData} from './utils';
+import { registerData } from './utils';
 
-class Register extends Block {
+class Register extends Block<IRegister> {
   constructor(props: IRegister) {
     super(AuthorizationLayout.template, props);
   }
@@ -58,8 +58,6 @@ const form = new Form({
     submit: (e: SubmitEvent) => handleSubmit({ fields, e, validationSchema }),
   },
 });
-
-
 
 const registerForm = new ContentBlock({
   title: 'Войти',

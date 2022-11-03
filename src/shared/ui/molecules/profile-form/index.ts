@@ -1,20 +1,14 @@
-import {Block} from "../../../classes";
-import {template} from './profile-form.tmpl';
-
-import {Button} from "../../atoms/button";
-import {Form} from "../form";
-import {Avatar} from "../../atoms/avatar";
-
+import { Block } from 'shared/classes';
+import { Button, Avatar } from 'shared/ui';
+import { ValidationSchema } from 'shared/types';
+import { handleSubmit } from 'shared/functions/handle-submit';
+import { template } from './profile-form.tmpl';
+import { Form } from '../form';
 import { IProfileForm } from './types';
-import {ValidationSchema} from "../../../types";
 import profilePicture from '../../../../../static/images/profile-picture.png';
-import {IFields} from "../form/types";
-import {handleSubmit} from "../../../functions/handle-submit";
+import { IFields } from '../form/types';
 
-
-
-
-export class ProfileForm extends Block {
+export class ProfileForm extends Block<IProfileForm> {
   constructor(props: IProfileForm) {
     super(template, props);
   }
@@ -29,10 +23,7 @@ export class ProfileForm extends Block {
   }
 }
 
-export function ProfileFormModule(
-  fields: IFields[],
-  validationSchema: ValidationSchema,
-): ProfileForm {
+export function ProfileFormModule(fields: IFields[], validationSchema: ValidationSchema): ProfileForm {
   const button = new Button({
     type: 'submit',
     content: 'Сохранить',

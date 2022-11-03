@@ -1,9 +1,9 @@
-import {Block} from "shared/classes";
-import {ErrorLayout, Link} from "shared/ui";
-import {renderDom} from "shared/functions/render-dom";
+import { Block } from 'shared/classes';
+import { ErrorLayout, Link } from 'shared/ui';
+import { renderDom } from 'shared/functions/render-dom';
 import { IError404 } from './types';
 
-class Error404 extends Block {
+class Error404 extends Block<IError404> {
   constructor(props: IError404) {
     super(ErrorLayout.template, props);
   }

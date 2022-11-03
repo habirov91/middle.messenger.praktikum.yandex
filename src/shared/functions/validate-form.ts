@@ -1,13 +1,8 @@
-import {getCurField} from 'shared/functions/get-cur-field';
-import {IFields} from "shared/ui/molecules/form/types";
-import {FormValues, ValidationSchema} from "../types";
+import { getCurField } from 'shared/functions/get-cur-field';
+import { IFields } from 'shared/ui/molecules/form/types';
+import { FormValues, ValidationSchema } from '../types';
 
-export function validateForm(
-  fields: IFields[],
-  formValues: FormValues,
-  validationSchema: ValidationSchema,
-) {
-
+export function validateForm(fields: IFields[], formValues: FormValues, validationSchema: ValidationSchema) {
   Object.entries(formValues).forEach(([name, value]) => {
     if (!validationSchema[name]) {
       return;

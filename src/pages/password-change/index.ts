@@ -1,13 +1,13 @@
-import {Block} from "shared/classes";
-import {ProfileLayout, Link, Navigation, Sidebar, Input, ProfileFormModule, FormError} from "shared/ui";
-import {validateField} from "shared/functions/validate-field";
-import {handleInputChange} from "shared/functions/handle-input-change";
-import {renderDom} from "shared/functions/render-dom";
-import { validationSchema } from "shared/data/user-validation-schema";
+import { Block } from 'shared/classes';
+import { ProfileLayout, Link, Navigation, Sidebar, Input, ProfileFormModule, FormError } from 'shared/ui';
+import { validateField } from 'shared/functions/validate-field';
+import { handleInputChange } from 'shared/functions/handle-input-change';
+import { renderDom } from 'shared/functions/render-dom';
+import { validationSchema } from 'shared/data/user-validation-schema';
 import { IPasswordChange } from './types';
-import {passwordData} from './utils';
+import { passwordData } from './utils';
 
-class PasswordChange extends Block {
+class PasswordChange extends Block<IPasswordChange> {
   constructor(props: IPasswordChange) {
     super(ProfileLayout.template, props);
   }

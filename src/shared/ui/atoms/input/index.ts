@@ -1,9 +1,8 @@
-import {Block} from "../../../classes";
-import {template} from './input.tmpl';
+import { Block } from '../../../classes';
+import { template } from './input.tmpl';
 import { IInput } from './types';
 
-
-export class Input extends Block {
+export class Input extends Block<IInput> {
   constructor(props: IInput) {
     super(template, props);
   }

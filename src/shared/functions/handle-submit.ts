@@ -1,7 +1,7 @@
-import {IFields} from "shared/ui/molecules/form/types";
-import {getFormValues} from './get-form-values';
-import {validateForm} from './validate-form';
-import {ValidationSchema} from "../types";
+import { IFields } from 'shared/ui/molecules/form/types';
+import { getFormValues } from './get-form-values';
+import { validateForm } from './validate-form';
+import { ValidationSchema } from '../types';
 
 interface HandleSubmitProps {
   fields: IFields[];
@@ -9,11 +9,7 @@ interface HandleSubmitProps {
   validationSchema?: ValidationSchema;
 }
 
-export function handleSubmit({
-  fields,
-  e,
-  validationSchema,
-}: HandleSubmitProps) {
+export function handleSubmit({ fields, e, validationSchema }: HandleSubmitProps) {
   e.preventDefault();
 
   const formValues = getFormValues(e.target);

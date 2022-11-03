@@ -1,4 +1,4 @@
-import {ILink} from "shared/ui/atoms/link/types";
+import { ILink } from 'shared/ui/atoms/link/types';
 import { IProfileField } from '../types';
 
 export const profileData: IProfileField[] = [

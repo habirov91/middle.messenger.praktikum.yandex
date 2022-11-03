@@ -1,9 +1,8 @@
-import {Block} from "../../../classes";
-import {template} from './link.tmpl';
+import { Block } from '../../../classes';
+import { template } from './link.tmpl';
 import { ILink } from './types';
 
-
-export class Link extends Block {
+export class Link extends Block<ILink> {
   constructor(props: ILink) {
     super(template, props);
   }

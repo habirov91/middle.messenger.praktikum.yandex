@@ -1,13 +1,13 @@
-import {Block} from "shared/classes";
-import {ProfileFormModule, Navigation, Link, FormError, Input, Sidebar, ProfileLayout} from "shared/ui";
-import {handleInputChange} from "shared/functions/handle-input-change";
-import {validateField} from "shared/functions/validate-field";
-import {renderDom} from "shared/functions/render-dom";
-import { validationSchema } from "shared/data/user-validation-schema";
+import { Block } from 'shared/classes';
+import { ProfileFormModule, Navigation, Link, FormError, Input, Sidebar, ProfileLayout } from 'shared/ui';
+import { handleInputChange } from 'shared/functions/handle-input-change';
+import { validateField } from 'shared/functions/validate-field';
+import { renderDom } from 'shared/functions/render-dom';
+import { validationSchema } from 'shared/data/user-validation-schema';
 import { IProfileChange } from './types';
-import {profileChangeData} from './utils';
+import { profileChangeData } from './utils';
 
-class ProfileChange extends Block {
+class ProfileChange extends Block<IProfileChange> {
   constructor(props: IProfileChange) {
     super(ProfileLayout.template, props);
   }

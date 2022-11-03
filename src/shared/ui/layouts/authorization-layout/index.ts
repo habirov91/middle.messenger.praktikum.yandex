@@ -1,4 +1,4 @@
-import {template} from './authorization-layout.tmpl';
+import { template } from './authorization-layout.tmpl';
 
 export const AuthorizationLayout = {
   template,

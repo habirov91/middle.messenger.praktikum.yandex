@@ -1,4 +1,4 @@
-import {ValidationSchema} from "../types";
+import { ValidationSchema } from '../types';
 
 const nameRule = /^[А-ЯA-Z][а-яА-ЯёЁa-zA-Z-]+$/g;
 const loginRule = /^(?=.*[a-zA-Z])([a-zA-Z0-9_-]{3,20})$/g;
@@ -18,8 +18,7 @@ export const validationSchema: ValidationSchema = {
   },
   login: {
     rule: loginRule,
-    error:
-      'Логин должен иметь длину 3-20 и не содержать пробелов и специальных символов (исключая - и _).',
+    error: 'Логин должен иметь длину 3-20 и не содержать пробелов и специальных символов (исключая - и _).',
   },
   display_name: {
     rule: noEmptyRule,
@@ -31,17 +30,15 @@ export const validationSchema: ValidationSchema = {
   },
   phone: {
     rule: phoneRule,
-    error:
-      'Телефон должен иметь длину 10-15 и содержать цифры (или + в начале).',
+    error: 'Телефон должен иметь длину 10-15 и содержать цифры (или + в начале).',
   },
   password: {
     rule: passwordRule,
-    error:
-      'Пароль должен иметь длину 8-40, включая по крайней мере одну заглавную букву и цифру',
+    error: 'Пароль должен иметь длину 8-40, включая по крайней мере одну заглавную букву и цифру',
   },
   passwordConfirm: {
     rule: { equal: 'password' },
-    error: "Пароли не совпадают",
+    error: 'Пароли не совпадают',
   },
   oldPassword: {
     rule: noEmptyRule,
@@ -49,11 +46,14 @@ export const validationSchema: ValidationSchema = {
   },
   newPassword: {
     rule: passwordRule,
-    error:
-      'Пароль должен иметь длину 8-40, включая по крайней мере одну заглавную букву и цифру',
+    error: 'Пароль должен иметь длину 8-40, включая по крайней мере одну заглавную букву и цифру',
   },
   newPasswordConfirm: {
     rule: { equal: 'newPassword' },
-    error: "Пароли не совпадают",
+    error: 'Пароли не совпадают',
+  },
+  message: {
+    rule: noEmptyRule,
+    error: 'Поле не должно быть пустым',
   },
 };

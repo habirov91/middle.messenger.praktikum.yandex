@@ -1,9 +1,8 @@
-import {Block} from "shared/classes";
-import {template} from './button.tmpl';
+import { Block } from 'shared/classes';
+import { template } from './button.tmpl';
 import { IButton } from './types';
 
-
-export class Button extends Block {
+export class Button extends Block<IButton> {
   constructor(props: IButton) {
     super(template, props);
   }

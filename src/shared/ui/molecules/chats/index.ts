@@ -1,19 +1,13 @@
-import {Block} from "../../../classes";
-import {template} from './chats.tmpl';
-
-import {Chat} from './components/chat';
-import {Avatar} from "../../atoms/avatar";
-import {Link} from "../../atoms/link";
-import {Input} from "../../atoms/input";
-
+import { Block } from 'shared/classes';
+import { Avatar, Link, Input } from 'shared/ui';
+import { template } from './chats.tmpl';
+import { Chat } from './components/chat';
 import { IChats } from './types';
-import {BurgerIcon} from "../../../../../static/icons/burger-icon";
+import { BurgerIcon } from '../../../../../static/icons/burger-icon';
 import userAvatar from '../../../../../static/images/user-avatar.png';
-import {chatsData} from "../../../data/chats-data";
+import { chatsData } from 'shared/data/chats-data';
 
-
-
-export class Chats extends Block {
+export class Chats extends Block<IChats> {
   constructor(props: IChats) {
     super(template, props);
   }

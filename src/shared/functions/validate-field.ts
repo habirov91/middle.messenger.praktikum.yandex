@@ -1,8 +1,8 @@
-import {Input} from "shared/ui/atoms/input";
-import {FormError} from "shared/ui/atoms/form-error";
-import {IFields} from "shared/ui/molecules/form/types";
-import {getCurField} from './get-cur-field';
-import {ValidationSchema} from "../types";
+import { Input } from 'shared/ui/atoms/input';
+import { FormError } from 'shared/ui/atoms/form-error';
+import { IFields } from 'shared/ui/molecules/form/types';
+import { getCurField } from './get-cur-field';
+import { ValidationSchema } from '../types';
 
 export function validateField(
   input: Input,

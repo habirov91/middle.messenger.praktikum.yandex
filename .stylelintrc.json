@@ -3,8 +3,12 @@
     "stylelint-config-prettier-scss",
     "stylelint-config-standard-scss"
   ],
-  "ignoreFiles": ["dist/*"],
-  "plugins": ["stylelint-scss"],
+  "ignoreFiles": [
+    "dist/*"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ],
   "rules": {
     "color-hex-case": "lower",
     "at-rule-no-unknown": null,

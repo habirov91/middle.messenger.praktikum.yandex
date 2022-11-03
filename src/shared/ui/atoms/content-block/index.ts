@@ -1,9 +1,8 @@
-import {Block} from "../../../classes";
-import {template} from './content-block.tmpl';
+import { Block } from '../../../classes';
+import { template } from './content-block.tmpl';
 import { IContentBlock } from './types';
 
-
-export class ContentBlock extends Block {
+export class ContentBlock extends Block<IContentBlock> {
   constructor(props: IContentBlock) {
     super(template, props);
   }
