@@ -1,0 +1,23 @@
+@import '../../../styles/global';
+
+.form {
+  @include flexCenter;
+
+  &.vertical {
+    flex-direction: column;
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 500px;
+}

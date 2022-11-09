@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #eaeaea;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

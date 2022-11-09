@@ -1,0 +1,6 @@
+@import '../../../styles/global';
+
+.standard {
+  @include flexCenter;
+  height: 100%;
+}

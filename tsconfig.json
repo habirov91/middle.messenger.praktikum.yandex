@@ -1,0 +1,24 @@
+{
+  "include": [
+    "src",
+    "./declaration.d.ts"
+  ],
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es2018",
+    "declaration": false,
+    "module": "commonjs",
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "baseUrl": "",
+    "paths": {
+      "shared/*": [
+        "src/shared/*"
+      ]
+    }
+  }
+}
