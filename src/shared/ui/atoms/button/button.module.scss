@@ -1,14 +1,22 @@
-.standard {
+.btn {
   outline: none;
   border: none;
   padding: 12px;
   font-family: Sora, sans-serif;
-  background: #4d82ff;
-  color: white;
+  background: var(--primary);
+  color: var(--white);
   border-radius: 8px;
   cursor: pointer;
 
   &:hover {
-    background: #4d82ff;
+    background: var(--primary400);
+  }
+}
+
+.transparent {
+  background: transparent;
+
+  &:hover {
+    background: transparent;
   }
 }

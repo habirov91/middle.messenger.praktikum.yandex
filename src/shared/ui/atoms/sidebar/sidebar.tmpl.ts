@@ -1,3 +1,3 @@
-import * as styles from './sidebar.module.scss';
+import * as classes from './sidebar.module.scss';
 
-export const template = `<div class=${styles.standard}>{{ content }}</div>`;
+export const template = `<div class=${classes.sidebar}>{{ content }}</div>`;

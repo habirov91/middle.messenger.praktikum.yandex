@@ -1,9 +1,12 @@
-import { Block } from 'shared/classes';
-import { Link, Avatar } from 'shared/ui';
-import { template } from './profile-info.tmpl';
+import Block from 'shared/classes/block';
+import {connect} from 'shared/functions/connect';
+import { Link, ContentBlock, Avatar, Modal } from 'shared/ui';
+import {Store} from 'shared/store';
+import ProfileController from './controller';
+import template from './profile-info.tmpl';
 import { IProfileInfo } from './types';
-import { profileLinks, profileData } from './utils';
-import profilePicture from '../../../../../static/images/profile-picture.png';
+import { profileLinks, mapStateToProfile } from './utils';
+import profilePicture from '../../../../../static/images/profilePicture.png';
 
 export class ProfileInfo extends Block<IProfileInfo> {
   constructor(props: IProfileInfo) {
@@ -11,10 +14,17 @@ export class ProfileInfo extends Block<IProfileInfo> {
   }
 
   render() {
-    const { avatar, username, profileFields, links } = this.props;
+    const { avatar, modal, username, profileFields, links } = this.props;
+
+    const { user } = Store.getState();
+
+    if (!user) {
+      ProfileController.getUser();
+    }
 
     return this.compile({
       avatar,
+      modal,
       username,
       profileFields,
       links,
@@ -22,17 +32,45 @@ export class ProfileInfo extends Block<IProfileInfo> {
   }
 }
 
+const profileInfo = connect<IProfileInfo>(mapStateToProfile);
+
+const ProfileInfoHoc = profileInfo(ProfileInfo);
+
 export function ProfileInfoModule(): ProfileInfo {
-  const links = profileLinks.map(({ url, content }) => new Link({ url, content }));
+  const links = profileLinks.map(
+    ({ url, content }, index) =>
+      new Link({
+        url,
+        content,
+        events:
+          index === profileLinks.length - 1
+            ? {
+                click: ProfileController.logout,
+              }
+            : undefined,
+      }),
+  );
+
+  const modal = new Modal({
+    content: new ContentBlock({
+      title: 'Upload a file',
+      content: '',
+    }),
+    isModalOpen: false,
+  });
 
   const avatar = new Avatar({
     source: profilePicture,
+    events: {
+      click: () => modal.setProps({ isModalOpen: true }),
+    },
   });
 
-  return new ProfileInfo({
+  return new ProfileInfoHoc({
     avatar,
+    modal,
     links,
-    username: 'Ильдус',
-    profileFields: profileData,
+    username: '',
+    profileFields: [{ label: '', value: '' }],
   });
 }

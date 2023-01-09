@@ -1,6 +1,5 @@
-import { Block } from 'shared/classes';
-import { ErrorLayout, Link } from 'shared/ui';
-import { renderDom } from 'shared/functions/render-dom';
+import Block from 'shared/classes/block';
+import { Link, ErrorLayout } from 'shared/ui';
 import { IError404 } from './types';
 
 class Error404 extends Block<IError404> {
@@ -20,14 +19,12 @@ class Error404 extends Block<IError404> {
 }
 
 const link = new Link({
-  url: 'chatSelect.html',
-  content: 'Назад к чатам',
+  url: '/',
+  content: 'Назад на главную страницу',
 });
 
-const content = new Error404({
+export default new Error404({
   code: '404',
-  text: 'Не туда попали',
+  text: 'Wrong path',
   link,
 });
-
-renderDom('#root', content);

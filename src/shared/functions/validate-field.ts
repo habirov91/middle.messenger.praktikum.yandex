@@ -1,11 +1,13 @@
-import { Input } from 'shared/ui/atoms/input';
-import { FormError } from 'shared/ui/atoms/form-error';
-import { IFields } from 'shared/ui/molecules/form/types';
-import { getCurField } from './get-cur-field';
+import Input from '../ui/atoms/form/input';
+import FormError from '../ui/atoms/form/error';
+import FileInput from '../ui/atoms/form/fileInput';
 import { ValidationSchema } from '../types';
+import { IFields } from '../ui/atoms/form/types';
+import { setErrors, removeErrors } from './handle-error';
+import {getCurField} from './get-cur-field';
 
 export function validateField(
-  input: Input,
+  input: Input | FileInput,
   formError: FormError,
   validationSchema: ValidationSchema,
   fields?: IFields[],
@@ -21,11 +23,15 @@ export function validateField(
   if (rule instanceof RegExp) {
     rule.lastIndex = 0;
     if (!rule.test(value)) {
-      input.setProps({ error });
-      formError.setProps({ error });
+      setErrors({ input, error: formError }, error);
     } else {
-      input.setProps({ error: undefined });
-      formError.setProps({ error: undefined });
+      removeErrors({ input, error: formError });
+    }
+  } else if (typeof rule === 'function') {
+    if (!rule(value)) {
+      setErrors({ input, error: formError }, error);
+    } else {
+      removeErrors({ input, error: formError });
     }
   } else {
     if (!fields) {
@@ -41,11 +47,9 @@ export function validateField(
     const requiredVal = (field.input.element as HTMLInputElement).value;
 
     if (requiredVal !== value) {
-      input.setProps({ error });
-      formError.setProps({ error });
+      setErrors({ input, error: formError }, error);
     } else {
-      input.setProps({ error: undefined });
-      formError.setProps({ error: undefined });
+      removeErrors({ input, error: formError });
     }
   }
 }

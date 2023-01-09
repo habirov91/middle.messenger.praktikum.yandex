@@ -1,0 +1,21 @@
+@import '../../../styles/global';
+
+.modal {
+  @include positionCenter;
+  display: none;
+}
+
+.modalOpen {
+  display: block;
+}
+
+.modalShadow {
+  @include positionFill;
+  display: none;
+  background-color: var(--darkShadow);
+  z-index: 999;
+}
+
+.modalShadowOpen {
+  display: block;
+}

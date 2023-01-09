@@ -1,5 +1,5 @@
-import { Block } from 'shared/classes';
-import { template } from './sidebar.tmpl';
+import Block from '../../../classes/block';
+import {template} from './sidebar.tmpl';
 import { ISidebar } from './types';
 
 export class Sidebar extends Block<ISidebar> {

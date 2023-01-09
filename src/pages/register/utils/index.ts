@@ -1,6 +1,6 @@
-import { IInput } from 'shared/ui/atoms/input/types';
+import { IInput } from 'shared/ui/atoms/form/input/types';
 
-export const registerData: IInput[] = [
+const fieldsData: IInput[] = [
   { name: 'email', placeholder: 'Email', type: 'email' },
   { name: 'login', placeholder: 'Логин', type: 'text' },
   { name: 'first_name', placeholder: 'Имя', type: 'text' },
@@ -13,3 +13,5 @@ export const registerData: IInput[] = [
     type: 'password',
   },
 ];
+
+export default fieldsData;

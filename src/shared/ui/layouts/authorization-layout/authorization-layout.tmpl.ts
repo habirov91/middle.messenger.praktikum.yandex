@@ -1,8 +1,8 @@
-import * as styles from './authorization-layout.module.scss';
+import * as classes from './authorization-layout.module.scss';
 
 export const template = `
 <main>
-    <div class=${styles.wrapper}>
+    <div class=${classes.authorization}>
         <div> {{ form }} </div> 
         {{link}}
     </div>

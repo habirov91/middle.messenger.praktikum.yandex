@@ -1,8 +1,8 @@
-import { Block } from 'shared/classes';
-import { template } from './message.tmpl';
+import Block from 'shared/classes/block';
+import template from './message.tmpl';
 import { IMessage } from './types';
 
-export class Message extends Block<IMessage> {
+export default class Message extends Block<IMessage> {
   constructor(props: IMessage) {
     super(template, props);
   }

@@ -1,21 +1,23 @@
-import * as styles from './profile-info.module.scss';
+import * as classes from './profile-info.module.scss';
 
-export const template = `
-<div class=${styles.wrapper}>
-<div class=${styles.head}>
-  <div>{{ avatar }}</div>
+export default `
+<div  class=${classes.wrapper}>
+  <div class=${classes.avatarWrapper}>
+    <div class=${classes.avatarField}>Сменить аватар</div>
+    <div class=${classes.avatar}>{{ avatar }}</div>
+  </div>
+  {{ modal }}
   <div>{{ username }}</div>
-</div>
-  <div class=${styles.infoFields}>
+  <div class=${classes.infoFields}>
     {{#each profileFields}}
-      <div class=${styles.infoField}>
+      <div class=${classes.infoField}>
         <div>{{ this.label }}</div>
         <div>{{ this.value }}</div>
       </div>
     {{/each}}
   </div>
   <div>
-    <div class=${styles.links}>
+    <div class=${classes.links}>
       {{#each links}}
         {{this}}
       {{/each}}

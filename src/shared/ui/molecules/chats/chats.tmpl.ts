@@ -1,12 +1,18 @@
-import * as styles from './chats.module.scss';
+import * as classes from './chats.module.scss';
 
 export const template = `
-<div class=${styles.wrapper}>
-  <div class=${styles.header}>{{ profile }}</div>
-  <div class=${styles.search}>{{ search }}</div>
+<div class=${classes.chats}>
+  <div class=${classes.header}>
+    <div>{{ profile }}</div>
+    <div>{{ search }}</div>
+    <div>{{ chatAdd }}</div>
+    <div>{{ modal }}</div>
+  </div>
   <div>
+    <ul>
       {{#each chatList}}
       {{ this }}
       {{/each}}
+    </ul>
   </div>
 </div>`;

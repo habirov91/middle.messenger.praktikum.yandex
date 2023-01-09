@@ -1,9 +1,9 @@
-import * as styles from './conversation.module.scss';
+import * as classes from './conversation.module.scss';
 
-export const template = `
-<div  class=${styles.wrapper}>
+export default `
+<div>
   <div>{{ topBar }}</div>
-  <div class=${styles.messages}>
+  <div class=${classes.messages}>
     {{#each messages}}
       {{ this }}
     {{/each}}

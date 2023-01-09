@@ -1,5 +1,5 @@
-import { Block } from '../../../classes';
-import { template } from './content-block.tmpl';
+import Block from '../../../classes/block';
+import {template} from './content-block.tmpl';
 import { IContentBlock } from './types';
 
 export class ContentBlock extends Block<IContentBlock> {

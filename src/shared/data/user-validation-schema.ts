@@ -7,6 +7,8 @@ const passwordRule = /^(?=.*[0-9])(?=.*[A-Z])([a-zA-Z0-9_-]{8,40})$/g;
 const phoneRule = /^[+]?[0-9]{10,15}$/g;
 export const noEmptyRule = /([^\s])/g;
 
+const isFile = (value: unknown): value is File => value instanceof File;
+
 export const validationSchema: ValidationSchema = {
   first_name: {
     rule: nameRule,
@@ -18,7 +20,8 @@ export const validationSchema: ValidationSchema = {
   },
   login: {
     rule: loginRule,
-    error: 'Логин должен иметь длину 3-20 и не содержать пробелов и специальных символов (исключая - и _).',
+    error:
+        'Логин должен иметь длину 3-20 и не содержать пробелов и специальных символов (исключая - и _).',
   },
   display_name: {
     rule: noEmptyRule,
@@ -30,11 +33,13 @@ export const validationSchema: ValidationSchema = {
   },
   phone: {
     rule: phoneRule,
-    error: 'Телефон должен иметь длину 10-15 и содержать цифры (или + в начале).',
+    error:
+        'Телефон должен иметь длину 10-15 и содержать цифры (или + в начале).',
   },
   password: {
     rule: passwordRule,
-    error: 'Пароль должен иметь длину 8-40, включая по крайней мере одну заглавную букву и цифру',
+    error:
+        'Пароль должен иметь длину 8-40, включая по крайней мере одну заглавную букву и цифру',
   },
   passwordConfirm: {
     rule: { equal: 'password' },
@@ -46,7 +51,8 @@ export const validationSchema: ValidationSchema = {
   },
   newPassword: {
     rule: passwordRule,
-    error: 'Пароль должен иметь длину 8-40, включая по крайней мере одну заглавную букву и цифру',
+    error:
+        'Пароль должен иметь длину 8-40, включая по крайней мере одну заглавную букву и цифру',
   },
   newPasswordConfirm: {
     rule: { equal: 'newPassword' },
@@ -55,5 +61,9 @@ export const validationSchema: ValidationSchema = {
   message: {
     rule: noEmptyRule,
     error: 'Поле не должно быть пустым',
+  },
+  avatar: {
+    rule: isFile,
+    error: 'Прикрепите файл',
   },
 };

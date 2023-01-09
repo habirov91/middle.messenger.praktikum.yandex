@@ -1,8 +1,8 @@
-import * as styles from './profile-form.module.scss';
+import * as classes from './profile-form.module.scss';
 
 export const template = `
-<div class=${styles.wrapper}>
-  <div>{{ avatar }}</div>
+<div>
+  <div class=${classes.avatar}>{{ avatar }}</div>
   <div>
     {{ form }}
   </<div>

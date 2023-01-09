@@ -1,33 +1,61 @@
 @import '../../../../shared/styles/global';
 
 .wrapper {
-  width: 510px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
-
-.head {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 3rem;
+  width: 30rem;
 }
 
 .infoFields {
-  display: flex;
-  flex-direction: column;
+  max-width: 510px;
+  width: 100%;
 
   .infoField {
-    display: flex;
+    @include flexBetween;
     padding: 10px 0;
-    justify-content: space-between;
-    border-bottom: 1px solid #eaeaea;
   }
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+}
+
+.avatarField {
+  @include positionFill;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: var(--darkShadow);
+  color: var(--white);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.avatarWrapper {
+  display: flex;
+  position: relative;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 130px;
+  height: 130px;
+
+  &:hover {
+    .avatarField {
+      display: flex;
+    }
+  }
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 130px;
+    height: 130px;
+  }
 }

@@ -1,4 +1,4 @@
-import { template } from './error-layout.tmpl';
+import { template } from './error-laout.tmpl';
 
 export const ErrorLayout = {
   template,

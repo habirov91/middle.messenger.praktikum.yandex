@@ -1,5 +1,5 @@
-import { BlockProps } from '../../../types';
-import { Block } from '../../../classes';
+import { BlockProps } from 'shared/types';
+import Block from '../../../classes/block';
 
 export interface IContentBlock extends BlockProps {
   title: string;

@@ -1,11 +1,15 @@
-import { Block } from 'shared/classes';
-import { Avatar, Link, Input } from 'shared/ui';
-import { chatsData } from 'shared/data/chats-data';
+import { Link, Button, ContentBlock, Form, Modal } from 'shared/ui';
+import {connect} from 'shared/functions';
+import {Store} from 'shared/store';
+import Block from '../../../classes/block';
 import { template } from './chats.tmpl';
-import { Chat } from './components/chat';
+import Input from '../../atoms/form/input';
+import FormError from '../../atoms/form/error';
+import ChatsController from './controller';
 import { IChats } from './types';
-import { BurgerIcon } from '../../../../../static/icons/burger-icon';
-import userAvatar from '../../../../../static/images/user-avatar.png';
+import burgerIcon from '../../../../../static/icons/burgerIcon';
+
+import mapStateToChats, { chatAddFields } from './utils';
 
 export class Chats extends Block<IChats> {
   constructor(props: IChats) {
@@ -13,34 +17,32 @@ export class Chats extends Block<IChats> {
   }
 
   render() {
-    const { profile, search, chatList } = this.props;
+    const { profile, search, chatList, chatAdd, modal } = this.props;
+    const { chats, user } = Store.getState();
+
+    if (!chats && user) {
+      ChatsController.getChats();
+    }
 
     return this.compile({
       profile,
       search,
+      chatAdd,
+      modal,
       chatList,
     });
   }
 }
 
+const chats = connect<IChats>(mapStateToChats);
+
+const ChatsHoc = chats(Chats);
+
 export function ChatsModule(): Chats {
   const link = new Link({
-    content: BurgerIcon,
-    url: 'profile.html',
+    content: burgerIcon,
+    url: 'profile',
   });
-
-  const chatList = chatsData.map(
-    ({ username, sender, message, time }) =>
-      new Chat({
-        avatar: new Avatar({
-          source: userAvatar,
-        }),
-        username: new Link({ content: username, url: 'chat-selected.html' }),
-        sender,
-        message,
-        time,
-      }),
-  );
 
   const search = new Input({
     type: 'text',
@@ -53,9 +55,52 @@ export function ChatsModule(): Chats {
     },
   });
 
-  return new Chats({
+  const fields = chatAddFields.map(({ name, placeholder, type }) => ({
+    input: new Input({ type, name, placeholder }),
+    error: new FormError({}),
+  }));
+
+  const modal = new Modal({
+    content: '',
+    isModalOpen: false,
+  });
+
+  const callback = () => modal.setProps({ isModalOpen: false });
+
+  const form = new Form({
+    fields,
+    button: new Button({
+      type: 'submit',
+      content: 'Create',
+    }),
+    vertical: true,
+    events: {
+      submit: (e: SubmitEvent) =>
+        ChatsController.createChat({ e, fields }, callback),
+    },
+  });
+
+  const content = new ContentBlock({
+    title: 'Create new chat',
+    content: form,
+  });
+
+  modal.setProps({ content });
+
+  const chatAdd = new Button({
+    type: 'button',
+    content: 'Добавить чат',
+    transparent: true,
+    events: {
+      click: () => modal.setProps({ isModalOpen: true }),
+    },
+  });
+
+  return new ChatsHoc({
     profile: link,
     search,
-    chatList,
+    chatAdd,
+    modal,
+    chatList: [],
   });
 }

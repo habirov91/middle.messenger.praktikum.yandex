@@ -1,3 +1,3 @@
-import * as styles from './link.module.scss';
+import * as classes from './link.module.scss';
 
-export const template = `<a class=${styles.standard} href='{{ url }}'>{{ content }}</a>`;
+export const template = `<a class=${classes.link} href='{{ url }}'>{{ content }}</a>`;

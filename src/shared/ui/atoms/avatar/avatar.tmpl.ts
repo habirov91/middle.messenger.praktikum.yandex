@@ -1,1 +1,3 @@
-export const template = `<img src="{{ source }}" alt="Аватар">`;
+import * as classes from './avatar.module.scss';
+
+export const template = `<img class=${classes.img} src="{{ source }}" >`;

@@ -1,8 +1,8 @@
-import { Block } from 'shared/classes';
-import { template } from './conversation-actions.tmpl';
+import Block from 'shared/classes/block';
+import template from './conversation-actions.tmpl';
 import { IConversationActions } from './types';
 
-export class ConversationActions extends Block<IConversationActions> {
+export default class ConversationActions extends Block<IConversationActions> {
   constructor(props: IConversationActions) {
     super(template, props);
   }

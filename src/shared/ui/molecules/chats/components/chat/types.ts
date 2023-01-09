@@ -1,11 +1,11 @@
-import { BlockProps } from '../../../../../types';
-import { Avatar } from '../../../../atoms/avatar';
-import { Link } from '../../../../atoms/link';
+import { Avatar } from 'shared/ui';
+import { BlockProps } from 'shared/types';
 
 export interface IChat extends BlockProps {
   avatar: Avatar;
-  username: Link;
+  title: string;
   sender: string;
   message: string;
   time: string;
+  unread: number;
 }

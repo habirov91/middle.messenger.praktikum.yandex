@@ -18,6 +18,7 @@
     "declaration-empty-line-before": "never",
     "string-quotes": "single",
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
-    "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]+$"
+    "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]+$",
+    "custom-property-pattern": "([^s])"
   }
 }

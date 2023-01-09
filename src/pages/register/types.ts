@@ -1,7 +1,21 @@
+import {ContentBlock, Link } from 'shared/ui';
 import { BlockProps } from 'shared/types';
-import { Form, Link } from 'shared/ui';
 
 export interface IRegister extends BlockProps {
-  form: Form;
-  link?: Link;
+  form: ContentBlock;
+  link: Link;
+}
+
+export type RegisterForm = {
+  email: string;
+  login: string;
+  first_name: string;
+  second_name: string;
+  phone: string;
+  password: string;
+  passwordConfirm?: string;
+};
+
+export interface RegisterData {
+  id: string;
 }

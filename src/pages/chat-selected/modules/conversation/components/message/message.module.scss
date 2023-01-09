@@ -3,6 +3,8 @@
 .message {
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
   max-width: 402px;
   padding: 11px;
   border-radius: 12px;
@@ -10,12 +12,22 @@
 
 .incomingMessage {
   border-top-left-radius: 0;
-  background-color: #f8f8f8;
+  background: var(--primary700);
   align-self: flex-start;
 }
 
 .ownMessage {
   border-bottom-right-radius: 0;
-  background-color: #e4edfd;
+  background: var(--primary);
   align-self: flex-end;
+}
+
+.content {
+  max-width: 75%;
+  overflow-wrap: break-word;
+}
+
+.info {
+  display: flex;
+  gap: 5px;
 }

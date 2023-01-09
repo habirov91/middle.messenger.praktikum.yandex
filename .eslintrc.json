@@ -10,15 +10,22 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "@typescript-eslint/no-unused-vars": 2,
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/default-param-last": "off",
-    "import/prefer-default-export": "off",
     "global-require": "off",
     "no-underscore-dangle": "off",
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
     "no-console": "off",
-    "no-useless-escape": "off"
+    "no-useless-escape": "off",
+    "no-continue": "off",
+    "func-names": "off",
+    "no-restricted-syntax": "off",
+    "consistent-return": "off",
+    "no-plusplus": "off",
+    "max-classes-per-file": "off",
+    "import/prefer-default-export": "off",
+    "import/export": 0
   },
   "parserOptions": {
     "project": "./tsconfig.json"

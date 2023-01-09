@@ -1,9 +1,9 @@
-import * as styles from './profile-layout.module.scss';
+import * as classes from './profile-layout.module.scss';
 
 export const template = `
-<main class=${styles.wrapper}>
+<main class=${classes.main}>
     {{ sidebar }}
-    <div class=${styles.profile}>
+    <div class=${classes.profile}>
         {{ content }}
     </div>
 </main>`;

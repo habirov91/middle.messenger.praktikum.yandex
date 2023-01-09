@@ -1,6 +1,8 @@
 import { FormValues } from '../types';
 
-export function getFormValues(eventTarget: EventTarget | null): FormValues {
+export function getFormValues<T extends FormValues>(
+  eventTarget: EventTarget | null,
+): T {
   const form = eventTarget as HTMLElement;
 
   const nodeList = form.querySelectorAll('input');
@@ -11,11 +13,12 @@ export function getFormValues(eventTarget: EventTarget | null): FormValues {
 
   const inputFields = Array.from(nodeList);
 
-  const formValues: FormValues = {};
-
-  inputFields.forEach((input) => {
-    formValues[input.name] = input.value;
-  });
-
-  return formValues;
+  return Object.fromEntries(
+    inputFields.map(({ name, value, type, files }) => {
+      if (type === 'file' && files) {
+        return [name, files[0]];
+      }
+      return [name, value];
+    }),
+  ) as T;
 }

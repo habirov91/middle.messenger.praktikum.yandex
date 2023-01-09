@@ -1,10 +1,9 @@
-import { Block } from 'shared/classes';
-import { ChatsModule, MainLayout } from 'shared/ui';
-import { renderDom } from 'shared/functions/render-dom';
+import Block from 'shared/classes/block';
+import { ChatsModule, Sidebar, MainLayout } from 'shared/ui';
 import { ConversationModule } from './modules/conversation';
 import { IChatSelected } from './types';
 
-class ChatSelected extends Block<IChatSelected> {
+class ChatSelected extends Block {
   constructor(props: IChatSelected) {
     super(MainLayout.template, props);
   }
@@ -19,11 +18,13 @@ class ChatSelected extends Block<IChatSelected> {
   }
 }
 
-const conversation = ConversationModule();
-
-const content = new ChatSelected({
-  chats: ChatsModule(),
-  content: conversation,
+const sidebar = new Sidebar({
+  content: ChatsModule(),
 });
 
-renderDom('#root', content);
+const conversation = ConversationModule();
+
+export default new ChatSelected({
+  chats: sidebar,
+  content: conversation,
+});
