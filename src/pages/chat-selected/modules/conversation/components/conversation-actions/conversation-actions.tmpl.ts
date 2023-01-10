@@ -1,7 +1,7 @@
-import * as styles from './conversation-actions.module.scss';
+import * as classes from './conversation-actions.module.scss';
 
-export const template = `
-<div class=${styles.actions}>
+export default `
+<div class=${classes.actions}>
   <div>{{ attachments }}</div>
-  <div>{{ messageForm }}</div>
+  <div class=${classes.form}>{{ messageForm }}</div>
 </div>`;

@@ -1,11 +1,8 @@
-import { Block } from 'shared/classes';
-import { ProfileFormModule, Navigation, Link, FormError, Input, Sidebar, ProfileLayout } from 'shared/ui';
-import { handleInputChange } from 'shared/functions/handle-input-change';
-import { validateField } from 'shared/functions/validate-field';
-import { renderDom } from 'shared/functions/render-dom';
-import { validationSchema } from 'shared/data/user-validation-schema';
+import Block from 'shared/classes/block';
+import {connect} from 'shared/functions';
+import { ProfileFormModule, Navigation, Sidebar, Link, ProfileLayout } from 'shared/ui';
 import { IProfileChange } from './types';
-import { profileChangeData } from './utils';
+import mapStateToProfileChange from './utils';
 
 class ProfileChange extends Block<IProfileChange> {
   constructor(props: IProfileChange) {
@@ -23,8 +20,8 @@ class ProfileChange extends Block<IProfileChange> {
 }
 
 const link = new Link({
-  content: 'Назад',
-  url: 'profile.html',
+  content: 'Назад к профилю',
+  url: 'profile',
 });
 
 const navigation = new Navigation({
@@ -35,27 +32,13 @@ const sidebar = new Sidebar({
   content: navigation,
 });
 
-const fields = profileChangeData.map(({ name, placeholder, type }) => ({
-  input: new Input({ name, placeholder, type }),
-  error: new FormError({}),
-}));
+const profileChange = connect<IProfileChange>(mapStateToProfileChange);
 
-fields.forEach(({ input, error }) => {
-  input.setProps({
-    events: {
-      blur: (e: FocusEvent) => {
-        handleInputChange(input, e);
-        validateField(input, error, validationSchema, fields);
-      },
-    },
-  });
-});
+const ProfileChangeHoc = profileChange(ProfileChange);
 
-const passwordForm = ProfileFormModule(fields, validationSchema);
+const passwordForm = ProfileFormModule([], 'profile');
 
-const content = new ProfileChange({
+export default new ProfileChangeHoc({
   sidebar,
   content: passwordForm,
 });
-
-renderDom('#root', content);

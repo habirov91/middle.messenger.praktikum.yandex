@@ -1,14 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-@import './global';
+@import 'https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Sora:wght@400;600&display=swap';
+@import 'global';
+
+:root {
+  --danger: #f65d53;
+  --primary200: #9baacf;
+  --primary300: #5d81d4;
+  --primary400: #5f8efa;
+  --primary: #4d82ff;
+  --primary700: #3a4151;
+  --primary800: #fbfbfb;
+  --primary900: #e5e5e5;
+  --clr-font: black;
+  --white: #fff;
+  --darkShadow: rgb(0 0 0 / 45.9%);
+  --black: black;
+}
 
 body {
   margin: 0;
+  background: var(--primary900);
+  color: var(--black);
   font-family: Sora, sans-serif;
-  font-size: 20px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
 }
 
 *,

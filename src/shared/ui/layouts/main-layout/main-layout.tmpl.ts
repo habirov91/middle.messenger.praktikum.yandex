@@ -1,7 +1,7 @@
-import * as styles from './main-layout.module.scss';
+import * as classes from './main-layout.module.scss';
 
 export const template = `
-<main class=${styles.wrapper}>
+<main class=${classes.main}>
     {{ chats }} 
     {{ content }}
 </main>`;

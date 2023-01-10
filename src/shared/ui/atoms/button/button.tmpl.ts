@@ -1,3 +1,10 @@
-import * as styles from './button.module.scss';
+import * as classes from './button.module.scss';
 
-export const template = `<button class=${styles.standard} type='{{ type }}'>{{ content }}</button>`;
+export const template = `
+<button 
+    class='${classes.btn}{{#if transparent}} ${classes.transparent}{{/if}}'
+    type='{{ type }}'
+>
+    {{ content }}
+</button>
+`;

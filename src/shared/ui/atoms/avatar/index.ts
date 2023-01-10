@@ -1,5 +1,5 @@
-import { Block } from 'shared/classes';
-import { template } from './avatar.tmpl';
+import Block from '../../../classes/block';
+import {template} from './avatar.tmpl';
 import { IAvatar } from './types';
 
 export class Avatar extends Block<IAvatar> {

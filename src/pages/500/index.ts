@@ -1,6 +1,5 @@
-import { Block } from 'shared/classes';
+import Block from 'shared/classes/block';
 import { Link, ErrorLayout } from 'shared/ui';
-import { renderDom } from 'shared/functions/render-dom';
 import { IError500 } from './types';
 
 class Error500 extends Block<IError500> {
@@ -20,14 +19,12 @@ class Error500 extends Block<IError500> {
 }
 
 const link = new Link({
-  url: 'chatSelect.html',
-  content: 'Назад к чатам',
+  url: '/',
+  content: 'Назад на главную страницу',
 });
 
-const content = new Error500({
+export default new Error500({
   code: '500',
-  text: 'Мы уже фиксим',
+  text: 'We are fixing it',
   link,
 });
-
-renderDom('#root', content);

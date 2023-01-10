@@ -1,14 +1,33 @@
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #eaeaea;
-}
-
 .chat {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  max-width: 100%;
+  gap: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--primary300);
+  }
+}
+
+.avatar {
+  width: 47px;
+  height: 47px;
+}
+
+.chatInfo {
+  width: 60%;
+}
+
+.messageInfo {
+  display: flex;
+  gap: 5px;
+}
+
+.sender {
+  white-space: nowrap;
+}
+
+.message {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -1,5 +1,5 @@
-import { Block } from 'shared/classes';
-import { template } from './button.tmpl';
+import Block from '../../../classes/block';
+import {template} from './button.tmpl';
 import { IButton } from './types';
 
 export class Button extends Block<IButton> {
@@ -8,8 +8,8 @@ export class Button extends Block<IButton> {
   }
 
   render() {
-    const { type, content } = this.props;
+    const { type, content, transparent } = this.props;
 
-    return this.compile({ type, content });
+    return this.compile({ type, content, transparent });
   }
 }

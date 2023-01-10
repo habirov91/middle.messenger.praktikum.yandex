@@ -1,0 +1,16 @@
+.input {
+  font-family: Sora, sans-serif;
+  color: var(--clr-font);
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--primary300);
+
+  &::placeholder {
+    color: var(--primary200);
+  }
+}
+
+.inputError {
+  border-bottom-color: var(--danger);
+}

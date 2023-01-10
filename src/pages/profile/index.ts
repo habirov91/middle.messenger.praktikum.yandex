@@ -1,7 +1,5 @@
-import { Block } from 'shared/classes';
-import { Link, Navigation, Sidebar } from 'shared/ui';
-import { renderDom } from 'shared/functions/render-dom';
-import { ProfileLayout } from 'shared/ui/layouts/profile-layout';
+import Block from 'shared/classes/block';
+import {Navigation, Sidebar, Link, ProfileLayout} from 'shared/ui';
 import { ProfileInfoModule } from './modules/profile-info';
 import { IProfile } from './types';
 
@@ -21,8 +19,8 @@ class Profile extends Block<IProfile> {
 }
 
 const link = new Link({
-  content: 'Назад',
-  url: 'chatSelect.html',
+  content: 'Назад к чатам',
+  url: '/',
 });
 
 const navigation = new Navigation({
@@ -35,9 +33,7 @@ const sidebar = new Sidebar({
 
 const profileInfo = ProfileInfoModule();
 
-const content = new Profile({
+export default new Profile({
   sidebar,
   content: profileInfo,
 });
-
-renderDom('#root', content);

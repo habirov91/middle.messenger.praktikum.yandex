@@ -1,4 +1,4 @@
-import { BlockProps } from '../../../types';
+import { BlockProps } from 'shared/types';
 
 export interface IAvatar extends BlockProps {
   source: string;

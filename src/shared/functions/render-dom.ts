@@ -1,7 +1,7 @@
+import Block from '../classes/block';
 import { Nullable } from '../types';
-import { Block } from '../classes';
 
-export function renderDom(query: string, block: Block): Nullable<Element> {
+export function render(query: string, block: Block): Nullable<Element> {
   const root = document.querySelector(query);
 
   if (!root) {

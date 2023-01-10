@@ -1,0 +1,14 @@
+.error {
+  display: none;
+  position: absolute;
+  left: 0;
+  color: var(--danger);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  line-height: 10px;
+}
+
+.errorShow {
+  display: block;
+}

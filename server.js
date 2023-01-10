@@ -1,22 +1,15 @@
 const express = require('express');
-const fs = require('fs');
+const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-app.use(express.static(`${__dirname}/dist`));
+app.use(express.static('./dist'));
 
-app.all('*', (req, res) => {
-    const filePath = `${__dirname}/dist/${req.path}.html`;
-    fs.access(filePath, fs.constants.F_OK, (err) => {
-        if (err) {
-            res.sendFile(`${__dirname}/dist/404.html`);
-        } else {
-            res.sendFile(`${__dirname}/dist/${req.path}.html`);
-        }
-    });
+app.get('*/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(port, () => {
-    console.log('Server is up on port 3000');
+  console.log(`Example app listening on port ${port}!`);
 });

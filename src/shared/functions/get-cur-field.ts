@@ -1,4 +1,4 @@
-import { IFields } from 'shared/ui/molecules/form/types';
+import { IFields } from '../ui/atoms/form/types';
 
 export function getCurField(name: string, fields: IFields[]) {
   return fields.find(({ input: { element } }) => {

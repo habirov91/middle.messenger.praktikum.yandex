@@ -1,12 +1,13 @@
-import { Block } from 'shared/classes';
-import { Button, Avatar } from 'shared/ui';
-import { ValidationSchema } from 'shared/types';
-import { handleSubmit } from 'shared/functions/handle-submit';
+import {Button, Form, Avatar} from 'shared/ui';
+import {connect} from 'shared/functions';
+import Block from '../../../classes/block';
 import { template } from './profile-form.tmpl';
-import { Form } from '../form';
+import mapStateToProfileForm from './utils';
+import ProfileChangeController from './controller';
 import { IProfileForm } from './types';
-import profilePicture from '../../../../../static/images/profile-picture.png';
-import { IFields } from '../form/types';
+import { IFields } from '../../atoms/form/types';
+import profilePicture from '../../../../../static/images/profilePicture.png';
+
 
 export class ProfileForm extends Block<IProfileForm> {
   constructor(props: IProfileForm) {
@@ -23,7 +24,14 @@ export class ProfileForm extends Block<IProfileForm> {
   }
 }
 
-export function ProfileFormModule(fields: IFields[], validationSchema: ValidationSchema): ProfileForm {
+const profileForm = connect<IProfileForm>(mapStateToProfileForm);
+
+const ProfileFormHoc = profileForm(ProfileForm);
+
+export function ProfileFormModule(
+  fields: IFields[],
+  action: 'profile' | 'password',
+): ProfileForm {
   const button = new Button({
     type: 'submit',
     content: 'Сохранить',
@@ -34,7 +42,13 @@ export function ProfileFormModule(fields: IFields[], validationSchema: Validatio
     button,
     vertical: true,
     events: {
-      submit: (e: SubmitEvent) => handleSubmit({ e, fields, validationSchema }),
+      submit: (e: SubmitEvent) => {
+        if (action === 'profile') {
+          ProfileChangeController.changeProfile({ fields, e });
+        } else {
+          ProfileChangeController.changePassword({ fields, e });
+        }
+      },
     },
   });
 
@@ -42,7 +56,7 @@ export function ProfileFormModule(fields: IFields[], validationSchema: Validatio
     source: profilePicture,
   });
 
-  return new ProfileForm({
+  return new ProfileFormHoc({
     avatar,
     form,
   });

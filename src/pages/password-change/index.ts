@@ -1,11 +1,11 @@
-import { Block } from 'shared/classes';
-import { ProfileLayout, Link, Navigation, Sidebar, Input, ProfileFormModule, FormError } from 'shared/ui';
-import { validateField } from 'shared/functions/validate-field';
-import { handleInputChange } from 'shared/functions/handle-input-change';
-import { renderDom } from 'shared/functions/render-dom';
-import { validationSchema } from 'shared/data/user-validation-schema';
+import Block from 'shared/classes/block';
+import { handleInputChange, validateField } from 'shared/functions';
+import { ProfileFormModule, Navigation, Sidebar, Link, ProfileLayout } from 'shared/ui';
+import {validationSchema} from 'shared/data';
+import Input from '../../shared/ui/atoms/form/input';
+import FormError from '../../shared/ui/atoms/form/error';
 import { IPasswordChange } from './types';
-import { passwordData } from './utils';
+import fieldsData from './utils';
 
 class PasswordChange extends Block<IPasswordChange> {
   constructor(props: IPasswordChange) {
@@ -23,8 +23,8 @@ class PasswordChange extends Block<IPasswordChange> {
 }
 
 const link = new Link({
-  content: 'Назад',
-  url: 'profile.html',
+  content: 'Назад к профилю',
+  url: 'profile',
 });
 
 const navigation = new Navigation({
@@ -35,7 +35,7 @@ const sidebar = new Sidebar({
   content: navigation,
 });
 
-const fields = passwordData.map(({ name, placeholder, type }) => ({
+const fields = fieldsData.map(({ name, placeholder, type }) => ({
   input: new Input({ name, placeholder, type }),
   error: new FormError({}),
 }));
@@ -51,11 +51,9 @@ fields.forEach(({ input, error }) => {
   });
 });
 
-const passwordForm = ProfileFormModule(fields, validationSchema);
+const passwordForm = ProfileFormModule(fields, 'password');
 
-const content = new PasswordChange({
+export default new PasswordChange({
   sidebar,
   content: passwordForm,
 });
-
-renderDom('#root', content);

@@ -1,12 +1,12 @@
-import { Block } from 'shared/classes';
-import { Button, Input, FormError, Form, ContentBlock, Link, AuthorizationLayout } from 'shared/ui';
-import { handleInputChange } from 'shared/functions/handle-input-change';
-import { handleSubmit } from 'shared/functions/handle-submit';
-import { renderDom } from 'shared/functions/render-dom';
-import { validateField } from 'shared/functions/validate-field';
-import { validationSchema } from 'shared/data/user-validation-schema';
+import Block from 'shared/classes/block';
+import {handleInputChange} from 'shared/functions/handle-input-change';
+import {validateField} from 'shared/functions/validate-field';
+import {ContentBlock, Button, Form, Link, AuthorizationLayout} from 'shared/ui';
+import Input from '../../shared/ui/atoms/form/input';
+import FormError from '../../shared/ui/atoms/form/error';
 import { ILogin } from './types';
-import { loginData } from './utils';
+import { fieldsData, validationSchema } from './utils';
+import LoginController from './controller';
 
 class Login extends Block<ILogin> {
   constructor(props: ILogin) {
@@ -24,11 +24,11 @@ class Login extends Block<ILogin> {
 }
 
 const button = new Button({
-  content: 'Авторизоваться',
+  content: 'Вход',
   type: 'submit',
 });
 
-const fields = loginData.map(({ name, placeholder, type }) => ({
+const fields = fieldsData.map(({ name, placeholder, type }) => ({
   input: new Input({
     name,
     placeholder,
@@ -48,17 +48,16 @@ fields.forEach(({ input, error }) => {
   });
 });
 
-const link = new Link({ content: 'Нет аккаунта?', url: './register.html' });
-
 const form = new Form({
   vertical: true,
   fields,
   button,
-  link,
   events: {
-    submit: (e: SubmitEvent) => handleSubmit({ fields, e }),
+    submit: (e: SubmitEvent) => LoginController.login({ fields, e }),
   },
 });
+
+const link = new Link({ content: 'Зарегистрироваться', url: 'register' });
 
 const loginForm = new ContentBlock({
   title: 'Вход',
@@ -66,9 +65,7 @@ const loginForm = new ContentBlock({
   authForm: true,
 });
 
-const content = new Login({
-  // @ts-ignore
+export default new Login({
   form: loginForm,
+  link,
 });
-
-renderDom('#root', content);

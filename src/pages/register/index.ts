@@ -1,12 +1,12 @@
-import { Block } from 'shared/classes';
-import { Button, Input, FormError, Form, Link, ContentBlock, AuthorizationLayout } from 'shared/ui';
-import { handleInputChange } from 'shared/functions/handle-input-change';
-import { validateField } from 'shared/functions/validate-field';
-import { handleSubmit } from 'shared/functions/handle-submit';
-import { renderDom } from 'shared/functions/render-dom';
-import { validationSchema } from 'shared/data/user-validation-schema';
+import Block from 'shared/classes/block';
+import {handleInputChange, validateField} from 'shared/functions';
+import {ContentBlock, Button, Form, Link, AuthorizationLayout} from 'shared/ui';
+import {validationSchema} from 'shared/data';
+import Input from '../../shared/ui/atoms/form/input';
+import FormError from '../../shared/ui/atoms/form/error';
 import { IRegister } from './types';
-import { registerData } from './utils';
+import RegisterController from './controller';
+import fieldsData from './utils';
 
 class Register extends Block<IRegister> {
   constructor(props: IRegister) {
@@ -27,7 +27,7 @@ const button = new Button({
   type: 'submit',
 });
 
-const fields = registerData.map(({ name, placeholder, type }) => ({
+const fields = fieldsData.map(({ name, placeholder, type }) => ({
   input: new Input({
     name,
     placeholder,
@@ -47,27 +47,24 @@ fields.forEach(({ input, error }) => {
   });
 });
 
-const link = new Link({ content: 'Войти', url: './login.html' });
-
 const form = new Form({
   vertical: true,
   fields,
   button,
-  link,
   events: {
-    submit: (e: SubmitEvent) => handleSubmit({ fields, e, validationSchema }),
+    submit: (e: SubmitEvent) => RegisterController.register({ fields, e }),
   },
 });
 
+const link = new Link({ content: 'Войти', url: '/' });
+
 const registerForm = new ContentBlock({
-  title: 'Войти',
+  title: 'Зарегистрироваться',
   content: form,
   authForm: true,
 });
 
-const content = new Register({
-  // @ts-ignore
+export default new Register({
   form: registerForm,
+  link,
 });
-
-renderDom('#root', content);
