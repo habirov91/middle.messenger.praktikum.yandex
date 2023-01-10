@@ -37,7 +37,7 @@
     "uuid": "9.0.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "2.7.0",
+    "@parcel/transformer-sass": "^2.7.0",
     "@typescript-eslint/eslint-plugin": "5.41.0",
     "@typescript-eslint/parser": "5.41.0",
     "eslint": "8.7.0",
@@ -46,7 +46,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.2.1",
-    "parcel": "2.7.0",
+    "parcel": "^2.7.0",
     "prettier": "2.7.1",
     "sass": "1.55.0",
     "stylelint": "14.14.0",
